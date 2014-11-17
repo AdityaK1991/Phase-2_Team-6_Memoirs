@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/brown">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip" 
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:textStyle="bold|italic"   
+        android:text="@string/welome" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_marginLeft="20dip" 
+        android:layout_marginBottom="10dip"
+        android:layout_marginRight="20dip"
+        android:background="#E2B865"  
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+       		style="@android:attr/buttonBarButtonStyle"
+            android:id="@+id/btnCalendar"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginRight="100dip"
+            android:background="@drawable/calendar" />
+
+        <Button
+            style="@android:attr/buttonBarButtonStyle"
+            android:id="@+id/btnAdd"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="100dip"
+            android:background="@drawable/add"/>
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/txtView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="No events to display!"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        />
+    <ListView 
+        android:id="@+id/lstView"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:alpha="1"
+        android:layout_weight="1"
+        android:divider="@android:color/transparent"
+ 	    android:dividerHeight="10.0sp"
+        android:layout_margin="10dp" 
+        ></ListView>
+
+     <Button
+            style="@android:attr/buttonBarButtonStyle"
+            android:id="@+id/btnExit1"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dip"
+            android:background="@drawable/exit1"/>
+</LinearLayout>

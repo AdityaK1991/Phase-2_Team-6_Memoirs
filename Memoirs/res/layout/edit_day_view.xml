@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/brown">
+    
+    
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Day's Overview"
+    android:textColor="#000080"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    android:layout_gravity="center" />
+
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Title:"
+    android:textColor="#000080"
+    android:textSize="15sp"
+    android:textStyle="bold"
+    android:layout_gravity="left" />
+
+<EditText 
+    android:id="@+id/edtTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dip"
+    android:hint="@string/title"
+    android:layout_gravity="center"
+    android:layout_marginBottom="10dip"
+    android:editable="true"
+    android:background="@android:color/background_light"
+    
+    />
+
+<TextView 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Description of your day:" 
+    android:textColor="#000080"
+    android:textSize="15sp"
+    android:textStyle="bold"
+    android:layout_gravity="left" />
+
+<EditText 
+    android:id="@+id/edtDescription"
+    android:gravity="left|top"
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight="1"
+    android:layout_margin="10dip"
+    android:hint="Description"
+    android:layout_gravity="center"
+    android:editable="true"
+    android:background="@android:color/background_light"
+    />
+
+<Button 
+    android:id="@+id/btnSave"
+    android:layout_marginLeft="5dip" 
+    android:layout_marginRight="5dip"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Save"
+    android:layout_gravity="center"
+    />
+
+<Button 
+    android:id="@+id/btnBack1"
+    android:layout_marginLeft="5dip" 
+    android:layout_marginRight="5dip"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Back"
+    android:layout_gravity="center"
+    />
+<Button 
+    android:id="@+id/btnLocation"
+    android:layout_marginLeft="5dip" 
+    android:layout_marginRight="5dip"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="@string/location"
+    />
+
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dip"
+    android:layout_marginLeft="20dip" 
+    android:layout_marginBottom="10dip"
+    android:layout_marginRight="20dip"
+    android:orientation="horizontal"
+    android:gravity="center">
+    
+   
+    <Button 
+    style="@android:attr/buttonBarButtonStyle"    
+    android:id="@+id/btnCamera"
+    android:layout_marginLeft="5dip" 
+    android:layout_marginRight="5dip"
+    android:background="@drawable/camera"
+    android:layout_width="40dip"
+    android:layout_height="40dip"
+    android:layout_gravity="center"
+    />
+
+    <Button 
+        
+    android:id="@+id/btnGallery"
+    android:layout_marginLeft="5dip" 
+    android:layout_marginRight="5dip"
+    android:background="@drawable/gallery"
+    android:layout_width="40dip"
+    android:layout_height="40dip"
+    android:layout_gravity="center"
+    />
+    
+    
+    
+    </LinearLayout>
+
+</LinearLayout>

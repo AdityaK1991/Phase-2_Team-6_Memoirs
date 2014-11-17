@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Memoirs</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter">Enter</string>
+    <string name="exit">Exit</string>
+    <string name="pass">Password</string>
+    <string name="welome">SAVE YOUR MEMORIES HERE!</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="location">Find my Location!</string>
+    <string name="locationView">Location View</string>
+    <string name="rePass">Re-enter</string>
+    <string name="name">Name</string>
+    <string name="signUp">Sign Up</string>
+    <string name="signIn">Sign in</string>
+    <string name="album_name">Camera Sample</string>
+    <string name="cannot ">Cannot</string>
+
+</resources>

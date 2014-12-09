@@ -3,12 +3,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/brown"
+    android:background="@drawable/spiral"
     android:gravity="center"
     >
    <LinearLayout 
    android:orientation="horizontal"
-   android:layout_margin="20dip"
+   android:layout_margin="30dip"
    android:layout_height="wrap_content"
    android:layout_width="match_parent"
    android:layout_gravity="center"

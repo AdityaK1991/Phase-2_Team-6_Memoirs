@@ -3,6 +3,7 @@ package cs442.team6.memoirs;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,9 @@ public class RegistrationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registration_view);
         
+        ActionBar actionBar = getActionBar();
+		actionBar.hide();
+        
         edtName = (EditText)findViewById(R.id.edtName);
         edtRPass = (EditText)findViewById(R.id.edtRPass);
         edtRConfirmPass = (EditText)findViewById(R.id.edtRConfirmPass);
@@ -37,8 +41,8 @@ public class RegistrationActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				if(edtName.getText().toString() !="" && edtRPass.getText().toString() !="" 
-						&& edtRConfirmPass.getText().toString() !="")
+				if(edtName.getText().toString() != "" && edtRPass.getText().toString() != "" 
+						&& edtRConfirmPass.getText().toString() != "")
 					
 				{
 				    try {

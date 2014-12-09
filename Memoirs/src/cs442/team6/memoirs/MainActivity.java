@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.util.GregorianCalendar;
 
 import android.support.v7.app.ActionBarActivity;
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Events;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -24,16 +27,26 @@ public class MainActivity extends ActionBarActivity {
 
 	EditText edtPass;
 	Button btnEnter, btnExit, btnRegister;
+	TextView txtMemoirs;
+	
+	Typeface font;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_view);
         
+        ActionBar actionBar = getActionBar();
+		actionBar.hide();
+		
         edtPass = (EditText)findViewById(R.id.edtPass);
         btnEnter = (Button)findViewById(R.id.btnEnter);
         btnExit = (Button)findViewById(R.id.btnExit);
         btnRegister = (Button)findViewById(R.id.btnRegister);
+        
+        txtMemoirs = (TextView)findViewById(R.id.txtMemoris);
+        font = Typeface.createFromAsset(getAssets(), "MP.ttf");
+		txtMemoirs.setTypeface(font);
         
         btnEnter.setOnClickListener(new OnClickListener() {
 			
@@ -91,6 +104,11 @@ public class MainActivity extends ActionBarActivity {
 		});
     }
 
+    @Override 
+	public void onBackPressed() { 
+		this.finish(); 
+		super.onBackPressed(); 
+		} 
 
     
     @Override

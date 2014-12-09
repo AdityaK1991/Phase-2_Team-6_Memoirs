@@ -1,6 +1,7 @@
 package cs442.team6.memoirs;
 
 import static cs442.team6.memoirs.EventSQLiteOpenHelper.COL_EVENT_DATE;
+import static cs442.team6.memoirs.EventSQLiteOpenHelper.COL_EVENT_TIME;
 import static cs442.team6.memoirs.EventSQLiteOpenHelper.COL_EVENT_DESCRIPTION;
 import static cs442.team6.memoirs.EventSQLiteOpenHelper.COL_EVENT_TITLE;
 import static cs442.team6.memoirs.EventSQLiteOpenHelper.TABLE_NAME;
@@ -132,7 +133,7 @@ public class CalendarAdapter extends BaseAdapter implements OnClickListener {
 											   - trailingSpaces + DAY_OFFSET)
 											   + i));
 					list.add(String.valueOf((daysInPrevMonth - trailingSpaces + DAY_OFFSET) + i)
-							+ "-GREY"
+							+ "-:"
 							+ "-"
 							+ getMonthAsString(prevMonth)
 							+ "-"
@@ -144,16 +145,16 @@ public class CalendarAdapter extends BaseAdapter implements OnClickListener {
 					Log.d(currentMonthName, String.valueOf(i) + " " + getMonthAsString(currentMonth) + " " + yy);
 					
 					if (i == getCurrentDayOfMonth()) {
-						list.add(String.valueOf(i) + "-BLUE" + "-" + getMonthAsString(currentMonth) + "-" + yy);
+						list.add(String.valueOf(i) + "->" + "-" + getMonthAsString(currentMonth) + "-" + yy);
 					} else {
-						list.add(String.valueOf(i) + "-WHITE" + "-" + getMonthAsString(currentMonth) + "-" + yy);
+						list.add(String.valueOf(i) + "--" + "-" + getMonthAsString(currentMonth) + "-" + yy);
 					}
 				}
 
 				// Leading Month days
 				for (int i = 0; i < list.size() % 7; i++) {
 					Log.d(tag, "NEXT MONTH:= " + getMonthAsString(nextMonth));
-					list.add(String.valueOf(i + 1) + "-GREY" + "-" + getMonthAsString(nextMonth) + "-" + nextYear);
+					list.add(String.valueOf(i + 1) + "-:" + "-" + getMonthAsString(nextMonth) + "-" + nextYear);
 				}
 			}
 
@@ -165,6 +166,7 @@ public class CalendarAdapter extends BaseAdapter implements OnClickListener {
 				return map;
 			}
 
+			String eTime="";
 			String eTitle="";
 		    String eDescription="";
 			
@@ -189,21 +191,51 @@ public class CalendarAdapter extends BaseAdapter implements OnClickListener {
 								
 								// Query the database
 								cursor = eventDB.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_EVENT_DATE + " =?", new String[]{getItem(position)});
-								
-								try{
-										 if(cursor != null)
-									             flag = 1;
-									        else
-									             flag = 0;
-
-									//cursor.close();
-									
-							    }catch (Exception Exp){
-								        Log.d("Cursor check", String.valueOf(cursor));
-							    }
-								
-								if(flag == 0)
+								if(cursor.getCount()>0)
 								{
+									flag = 1;
+									
+										Toast.makeText(v.getContext() ,"Clicked "+v.getTag(), Toast.LENGTH_SHORT).show();
+										
+									    eventDB = new EventSQLiteOpenHelper(v.getContext(), null, null, 1).getReadableDatabase();
+										
+										cursor = eventDB.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_EVENT_DATE + " =?", new String[]{getItem(position)});
+										
+										Log.d("Cursor f=1", String.valueOf(cursor));
+										
+										 try{
+									        	if(!cursor.isAfterLast())
+									    			cursor.moveToFirst();
+									    		
+									    		do{
+									    			eTime = cursor.getString(cursor.getColumnIndex(COL_EVENT_TIME));
+									    			eTitle =  cursor.getString(cursor.getColumnIndex(COL_EVENT_TITLE));
+									    			eDescription =  cursor.getString(cursor.getColumnIndex(COL_EVENT_DESCRIPTION));
+									            	Toast.makeText(v.getContext(), "Title: "+eTitle, Toast.LENGTH_SHORT).show();
+
+									    			cursor.moveToNext();
+									    		}while(!cursor.isAfterLast());
+									    		
+									    		//cursor.close();  
+										 }
+										 catch(Exception e)
+									        {
+									        	Log.d("Cursor error", "No data received");
+									        }
+										Intent i = new Intent(v.getContext(), EditDayActivity.class);
+										i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+										
+										i.putExtra("flag", flag);
+										i.putExtra("day", getItem(position));
+										i.putExtra("time", eTime);
+										i.putExtra("eTitle", eTitle);
+										i.putExtra("eDescription", eDescription);
+										v.getContext().startActivity(i);	
+									}
+								
+								
+								else{
+									flag = 0;
 									Intent i = new Intent(v.getContext(), EditDayActivity.class);
 									i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 									
@@ -211,43 +243,6 @@ public class CalendarAdapter extends BaseAdapter implements OnClickListener {
 									i.putExtra("day", getItem(position));
 									v.getContext().startActivity(i);
 									Log.d("Flag", String.valueOf(flag));
-								}
-							
-								else if(flag == 1)
-								{
-									Toast.makeText(v.getContext() ,"Clicked "+v.getTag(), Toast.LENGTH_SHORT).show();
-									
-								    eventDB = new EventSQLiteOpenHelper(v.getContext(), null, null, 1).getReadableDatabase();
-									
-									cursor = eventDB.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COL_EVENT_DATE + " =?", new String[]{getItem(position)});
-									
-									Log.d("Cursor f=1", String.valueOf(cursor));
-									
-									 try{
-								        	if(!cursor.isAfterLast())
-								    			cursor.moveToFirst();
-								    		
-								    		do{
-								    			eTitle =  cursor.getString(cursor.getColumnIndex(COL_EVENT_TITLE));
-								    			eDescription =  cursor.getString(cursor.getColumnIndex(COL_EVENT_DESCRIPTION));
-										        
-								    			cursor.moveToNext();
-								    		}while(!cursor.isAfterLast());
-								    		
-								    		//cursor.close();  
-									 }
-									 catch(Exception e)
-								        {
-								        	Log.d("Cursor error", "No data received");
-								        }
-									Intent i = new Intent(v.getContext(), EditDayActivity.class);
-									i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-									
-									i.putExtra("flag", flag);
-									i.putExtra("day", getItem(position));
-									i.putExtra("eTitle", eTitle);
-									i.putExtra("eDescription", eDescription);
-									v.getContext().startActivity(i);	
 								}
 						}
 				});
@@ -272,13 +267,13 @@ public class CalendarAdapter extends BaseAdapter implements OnClickListener {
 				Log.d(tag, "Setting GridCell " + day + "-" + themonth + "-"
 						+ theyear);
 
-				if (day_color[1].equals("GREY")) {
+				if (day_color[1].equals(":")) {
 					gridCell.setTextColor(_context.getResources().getColor(android.R.color.darker_gray));
 				}
-				if (day_color[1].equals("WHITE")) {
+				if (day_color[1].equals(">")) {
 					gridCell.setTextColor(_context.getResources().getColor(android.R.color.holo_blue_dark));
 				}
-				if (day_color[1].equals("BLUE")) {
+				if (day_color[1].equals("-")) {
 					gridCell.setTextColor(_context.getResources().getColor(android.R.color.black));
 				}
 				return row;
@@ -334,6 +329,3 @@ public class CalendarAdapter extends BaseAdapter implements OnClickListener {
 			}
 	
 		}
-
-
-

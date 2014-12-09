@@ -2,60 +2,69 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sign"
+    android:background="@drawable/bg"
     android:gravity="center"
     android:orientation="vertical" >
    
      <ImageView
         android:layout_width="95dp"
         android:layout_height="84dp"
-        android:layout_marginTop="30dip"
+        android:layout_marginTop="20dip"
         android:src="@drawable/ic_launcher" />
     
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="35dp"
-         android:layout_marginTop="40dip"
+         android:layout_marginTop="30dip"
          android:text="@string/signUp"
          android:textSize="25sp"
          android:textStyle="bold" />
 
     <EditText 
         android:id="@+id/edtName"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="150dp"
+ 		android:layout_margin="5dip"
+        android:background="#BCC6CC"
         android:hint="@string/name">
         <requestFocus />
         </EditText>
     
      <EditText 
         android:id="@+id/edtRPass"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="150dp"
         android:hint="@string/pass"
+        android:layout_margin="5dip"        
+        android:background="#BCC6CC"
         android:inputType="textPassword">
         
         </EditText>
         
      <EditText 
         android:id="@+id/edtRConfirmPass"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_margin="5dip"
         android:hint="@string/rePass"
+        android:background="#BCC6CC"
         android:inputType="textPassword">
         
         </EditText>
 
       <Button
         android:id="@+id/btnUserRegistration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signUp" />
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/register"
+        android:layout_marginBottom="5dip"
+        android:background="@drawable/b_border" />
       
     <Button
         android:id="@+id/btnExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/exit" />
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="@string/exit" 
+        android:background="@drawable/b_border"/>
 
 </LinearLayout>

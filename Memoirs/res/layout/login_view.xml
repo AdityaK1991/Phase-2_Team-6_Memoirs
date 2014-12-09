@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sign"
+    android:background="@drawable/bg"
     android:gravity="center"
     android:orientation="vertical" >
    
@@ -13,18 +13,21 @@
         android:src="@drawable/ic_launcher" />
     
      <TextView
+         android:id="@+id/txtMemoris"
          android:layout_width="wrap_content"
-         android:layout_height="35dp"
-         android:layout_marginTop="40dip"
-         android:text="@string/signIn"
-         android:textSize="25sp"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="20dip"
+         android:text="@string/memoirs"
+         android:textSize="50sp"
          android:textStyle="bold" />
     
      <EditText 
         android:id="@+id/edtPass"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:hint="@string/pass"
+        android:layout_margin="10dip"
+        android:background="#BCC6CC"
         android:inputType="textPassword">
         
         </EditText>
@@ -37,20 +40,35 @@
      >
     <Button
         android:id="@+id/btnEnter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter" />
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:text="@string/enter" 
+        android:layout_marginRight="10dip"
+        android:background="@drawable/b_border" />
       
     <Button
         android:id="@+id/btnExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/exit" />
+        android:layout_width="70dp"
+        android:layout_height="50dp"        
+        android:layout_marginLeft="10dip"
+        android:text="@string/exit"
+        android:background="@drawable/b_border"  />
+    
+    
 </LinearLayout>
-     <Button
-        android:id="@+id/btnRegister"
+     <RelativeLayout 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signUp" />
+        android:gravity="center|bottom"
+         >
+          <Button
+	        android:id="@+id/btnRegister"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@android:color/transparent"
+	        android:gravity="center"
+	        android:text="@string/newProfile" />
+     </RelativeLayout>
+    
 
 </LinearLayout>

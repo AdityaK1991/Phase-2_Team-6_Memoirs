@@ -3,44 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/brown">
-
+    android:background="@drawable/diarybg">
+    
+   
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip" 
-        android:layout_gravity="center"
-        android:textSize="22sp"
-        android:textStyle="bold|italic"   
-        android:text="@string/welome" />
-
-    <LinearLayout
+        android:id="@+id/txtMyMermories"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:layout_marginLeft="20dip" 
-        android:layout_marginBottom="10dip"
-        android:layout_marginRight="20dip"
-        android:background="#E2B865"  
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:layout_marginTop="20dip"
+        android:layout_marginLeft="50dip"
+        android:layout_marginRight="25dip"
+        android:textSize="45sp"
+        android:textStyle="bold|italic" 
+        android:textColor="#000080"
+        android:text="@string/welome" />
 
+   
         <Button
        		style="@android:attr/buttonBarButtonStyle"
             android:id="@+id/btnCalendar"
             android:layout_width="40dip"
             android:layout_height="40dip"
-            android:layout_marginRight="100dip"
+            android:layout_gravity="center"
             android:background="@drawable/calendar" />
 
-        <Button
-            style="@android:attr/buttonBarButtonStyle"
-            android:id="@+id/btnAdd"
-            android:layout_width="40dip"
-            android:layout_height="40dip"
-            android:layout_marginLeft="100dip"
-            android:background="@drawable/add"/>
-    </LinearLayout>
     
     <TextView 
         android:id="@+id/txtView"
@@ -59,15 +46,18 @@
         android:layout_weight="1"
         android:divider="@android:color/transparent"
  	    android:dividerHeight="10.0sp"
-        android:layout_margin="10dp" 
+        android:layout_marginLeft="55dp"
+        android:layout_marginRight="20dip" 
         ></ListView>
 
-     <Button
-            style="@android:attr/buttonBarButtonStyle"
-            android:id="@+id/btnExit1"
-            android:layout_width="40dip"
-            android:layout_height="40dip"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dip"
-            android:background="@drawable/exit1"/>
+	    <Button 
+	     android:id="@+id/btnExit1"
+	     android:layout_width="70dip"
+	   	 android:layout_height="50dip"
+	   	 android:layout_margin="10dip"
+	   	 android:layout_marginLeft="25dip"
+	   	 android:background="@drawable/b_border"
+	   	 android:layout_gravity="center"
+	   	 android:text="Back"/>
+
 </LinearLayout>

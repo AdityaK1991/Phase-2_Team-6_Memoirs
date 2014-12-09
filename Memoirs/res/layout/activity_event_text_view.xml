@@ -3,28 +3,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/brown" >
+    android:gravity="top"
+    android:background="@drawable/diarybg" >
+    
+        <TextView 
+             android:id="@+id/txtAboutEvent"
+             android:layout_width="match_parent"
+    		 android:layout_height="wrap_content"
+    		 android:gravity="center"
+    		 android:layout_marginLeft="50dip"
+    		 android:layout_marginRight="10dip"
+    		 android:layout_marginTop="10dip"
+    		 android:text="About the Event!"
+    		 android:textSize="45sp"
+    		 android:textStyle="bold"
+    		 android:textColor="#000080"
+            />
+        <Button 
+             android:id="@+id/btnEdit"
+             android:layout_width="30dip"
+    		 android:layout_height="30dip"
+    		 android:layout_gravity="center"
+    		 android:layout_marginTop="5dip"
+    		 android:background="@drawable/editevent"
+            />
+    
+    <RelativeLayout 
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+	   android:layout_marginLeft="50dip"
+	   android:layout_marginRight="10dip"
+	   android:layout_marginTop="10dip"
+       >
+        <TextView
+            android:id="@+id/txtEDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:background="@drawable/round_corner_yellow"
+            android:layout_alignParentStart="true"
+            />
+       
+    </RelativeLayout>
     
     <TextView 
      android:id="@+id/txtTitle"
      android:layout_width="match_parent"
-   	 android:layout_height="20dip"
-   	 android:layout_margin="10dip"
-   	 android:text="Title"/>
+   	 android:layout_height="wrap_content"
+   	 android:text="Title"
+   	 android:textSize="25dp"
+   	 android:layout_marginLeft="50dip"
+   	 android:layout_marginRight="10dip"
+   	 android:layout_marginBottom="10dip"
+   	 android:background="@drawable/round_corner_dark"
+   	 android:textStyle="bold"/>
     
     <TextView 
      android:id="@+id/txtDescription"
      android:layout_width="match_parent"
    	 android:layout_height="200dip"
-   	 android:layout_margin="10dip"
+   	 android:layout_marginLeft="50dip"
+   	 android:layout_marginRight="10dip"
+   	 android:textSize="15dip"
+   	 android:layout_marginBottom="10dip"
+     android:background="@drawable/round_corner_light"
    	 android:text="Description"/>
+    
+    <TextView 
+     android:id="@+id/txtLocAddress"
+     android:layout_width="match_parent"
+   	 android:layout_height="wrap_content"
+   	 android:layout_marginLeft="50dip"
+   	 android:layout_marginRight="10dip"
+   	 android:textSize="15dip"
+   	 android:visibility="invisible"
+   	 android:layout_marginBottom="10dip"
+   	 android:text="Location: "
+     android:background="@drawable/round_corner_light"/>
     
     <Button 
      android:id="@+id/btnBack2"
-     android:layout_width="wrap_content"
-   	 android:layout_height="wrap_content"
+     android:layout_width="70dip"
+   	 android:layout_height="50dip"
    	 android:layout_margin="10dip"
+   	 android:layout_marginLeft="35dip"
+   	 android:background="@drawable/b_border"
+   	 android:layout_gravity="center"
    	 android:text="Back"/>
     
 </LinearLayout>

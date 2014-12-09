@@ -38,6 +38,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
                 convertView = vi.inflate(R.layout.event_single, parent, false);
                
                 holder = new EventViewHolder();
+                holder.time = (TextView)convertView.findViewById(R.id.txtLTime);
                 holder.date = (TextView)convertView.findViewById(R.id.txtDate);
                 holder.title = (TextView)convertView.findViewById(R.id.txtTitle);
                 holder.description = (TextView)convertView.findViewById(R.id.txtDescription);
@@ -60,10 +61,12 @@ public class EventAdapter extends ArrayAdapter<Event> {
         class EventViewHolder {
         	
         	public TextView date;
+        	public TextView time;
 	        public TextView title;
 	        public TextView description;
 	        
 	        void populate(Event p) {
+	        	time.setText(p.eventTime);
 	        	date.setText(p.eventDate);
 	            title.setText(p.eventTitle);
 	            description.setText(p.eventDescription);

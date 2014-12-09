@@ -2,8 +2,10 @@ package cs442.team6.memoirs;
 
 import java.util.Locale;  
   
+import android.app.ActionBar;
 import android.app.Activity;  
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.util.Log;  
@@ -22,13 +24,14 @@ import android.widget.ImageView;
 
 public class CalenderViewActivity extends Activity implements OnClickListener {
 	
-	TextView currentMonth;
+	TextView currentMonth, txtCalendarView;
 	ImageView prevMonth;
 	ImageView nextMonth;
 	GridView calendarView;
 	Calendar _calendar;
 	CalendarAdapter adapter;
 	Button btnBack;
+	Typeface font;
 
 	private static final String dateTemplate = "MMMM yyyy";
 	int month, year;
@@ -38,6 +41,13 @@ public class CalenderViewActivity extends Activity implements OnClickListener {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.calender_view);
 	        
+	        ActionBar actionBar = getActionBar();
+			actionBar.hide();
+	        
+			txtCalendarView = (TextView)findViewById(R.id.txtCalendarView);
+			font = Typeface.createFromAsset(getAssets(), "MP.ttf");
+			txtCalendarView.setTypeface(font);
+			
 	        _calendar = Calendar.getInstance(Locale.getDefault());
 			month = _calendar.get(Calendar.MONTH) + 1;
 			year = _calendar.get(Calendar.YEAR);

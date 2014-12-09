@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/cover"
+     >
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_launcher"
+        android:tileMode="repeat" />
+
+    <TextView
+        android:id="@+id/txtLogo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:layout_below="@+id/imgLogo"
+        android:gravity="center_horizontal"
+        android:text="Memoirs"
+        android:textSize="60sp" />
+
+</RelativeLayout>

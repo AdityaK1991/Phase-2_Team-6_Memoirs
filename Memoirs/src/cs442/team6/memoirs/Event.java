@@ -1,13 +1,14 @@
 package cs442.team6.memoirs;
 
 public class Event {
-	String eventDate, eventTitle, eventDescription;
+	String eventDate, eventTime, eventTitle, eventDescription;
 	//int eventImg;
 
-	public Event(String eventDate, String eventTitle, String eventDescription) {
+	public Event(String eventDate, String eventTime, String eventTitle, String eventDescription) {
 		super();
 		//this.eventImg = eventImg;
 		this.eventDate = eventDate;
+		this.eventTime = eventTime;
 		this.eventTitle = eventTitle;
 		this.eventDescription = eventDescription;
 	}
@@ -18,6 +19,14 @@ public class Event {
 
 	public void setEventDate(String eventDate) {
 		this.eventDate = eventDate;
+	}
+	
+	public String getEventTime() {
+		return eventTime;
+	}
+
+	public void setEventTime(String eventTime) {
+		this.eventTime = eventTime;
 	}
 	
 	public String getEventTitle() {
